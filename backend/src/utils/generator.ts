@@ -1,36 +1,54 @@
 import { topicdev } from "./topicdev";
 
-async function process_book_struct(jsonData: any): Promise<string> {
+interface Subtopic {
+  title: string;
+  brief: string;
+}
+
+interface Topic {
+  topic: string;
+  subtopics: Subtopic[];
+}
+
+interface BookStructure {
+  heading: string;
+  topics: Topic[];
+}
+
+async function process_book_struct(jsonData: BookStructure): Promise<string> {
   let generatedContent = "";
 
-  async function iterateAndGenerate(data: any) {
-    // If it's an array, loop through each item
-    if (Array.isArray(data)) {
-      console.log("Processing JSON as an array...");
-      for (const [index, item] of data.entries()) {
-        console.log(`Generating content for Item ${index + 1}...`);
-        const generated = await topicdev(JSON.stringify(item));
-        generatedContent += `\n\n### Item ${index + 1} ###\n${generated}`;
+  // Helper function to iterate over data and generate content
+  async function iterateAndGenerate(data: BookStructure): Promise<void> {
+    console.log("Processing Book Structure...");
+
+    // Process heading
+    console.log(`Generating content for Heading: ${data.heading}...`);
+    const headingContent = await topicdev(data.heading);
+    generatedContent += `\n\n### Heading ###\n${headingContent}`;
+
+    // Process topics and subtopics
+    for (const [topicIndex, topic] of data.topics.entries()) {
+      console.log(`Generating content for Topic ${topicIndex + 1}: ${topic.topic}...`);
+      const topicContent = await topicdev(topic.topic);
+      generatedContent += `\n\n### Topic ${topicIndex + 1}: ${topic.topic} ###\n${topicContent}`;
+
+      for (const [subtopicIndex, subtopic] of topic.subtopics.entries()) {
+        console.log(
+          `Generating content for Subtopic ${subtopicIndex + 1} of Topic ${topicIndex + 1}: ${subtopic.title}...`
+        );
+        const subtopicContent = await topicdev(
+          `Title: ${subtopic.title}\nBrief: ${subtopic.brief}`
+        );
+        generatedContent += `\n\n#### Subtopic ${subtopicIndex + 1}: ${subtopic.title} ####\n${subtopicContent}`;
       }
-    }
-    // If it's an object, iterate through key-value pairs
-    else if (typeof data === "object" && data !== null) {
-      console.log("Processing JSON as an object...");
-      for (const [key, value] of Object.entries(data)) {
-        console.log(`Generating content for Key: ${key}...`);
-        const generated = await topicdev(JSON.stringify(value));
-        generatedContent += `\n\n### Key: ${key} ###\n${generated}`;
-      }
-    } else {
-      console.error("Unexpected JSON format. Unable to process.");
     }
   }
 
+  // Call the helper function
   await iterateAndGenerate(jsonData);
 
   return generatedContent;
 }
 
-export {
-    process_book_struct
-}
+export { process_book_struct };
