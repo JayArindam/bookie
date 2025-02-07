@@ -1,5 +1,6 @@
 import { topicdev } from "./topicdev";
 import { introgen } from "./introgenerator";
+import { subtopicdev } from "./subtopdev";
 
 interface Subtopic {
   title: string;
@@ -28,7 +29,7 @@ async function process_book_struct(jsonData: BookStructure): Promise<string> {
     const headingContent = await introgen(data.heading);
     generatedContent += `\n\n### Heading ###\n${headingContent}`;
 
-    // Process topics and subtopics
+    // double for loops to process both topics and subtopics T_T
     for (const [topicIndex, topic] of data.topics.entries()) {
       console.log(`Generating content for Topic ${topicIndex + 1}: ${topic.topic}...`);
       const topicContent = await topicdev(topic.topic);
@@ -38,7 +39,7 @@ async function process_book_struct(jsonData: BookStructure): Promise<string> {
         console.log(
           `Generating content for Subtopic ${subtopicIndex + 1} of Topic ${topicIndex + 1}: ${subtopic.title}...`
         );
-        const subtopicContent = await topicdev(
+        const subtopicContent = await subtopicdev(
           `Title: ${subtopic.title}\nBrief: ${subtopic.brief}`
         );
         generatedContent += `\n\n#### Subtopic ${subtopicIndex + 1}: ${subtopic.title} ####\n${subtopicContent}`;

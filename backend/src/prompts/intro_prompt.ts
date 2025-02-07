@@ -10,6 +10,7 @@ write about it in atleast 10000 words following the below information:
 -> no need to create points
 -> the data should also be progressive i.e. the intro should slowly cover what you will get to see as you continue to read a book
 -> also make sure that the intro is particular to the nature of the given prompt
+-> return nothing besides the result of prompt being asked to generate
 `
 
 export {

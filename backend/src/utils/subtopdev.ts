@@ -1,5 +1,5 @@
 import * as dotenv from "dotenv";
-import { topic_prompt } from "../prompts/topic_prompt";
+import { sub_top } from "../prompts/subtop_prompt";
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
@@ -7,14 +7,14 @@ dotenv.config();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-const system_instruct = topic_prompt;
+const system_instruct = sub_top;
 
 const model = genAI.getGenerativeModel({
   model: "gemini-1.5-flash",
   systemInstruction: system_instruct,
 });
 
-async function topicdev(prompt: string): Promise<string> {
+async function subtopicdev(prompt: string): Promise<string> {
     const MAX_RETRIES = 10;
     let retries = 0;
   
@@ -32,7 +32,7 @@ async function topicdev(prompt: string): Promise<string> {
             },
           ],
           generationConfig: {
-            maxOutputTokens: 25000,
+            maxOutputTokens: 20000,
             temperature: 0.3,
           },
         });
@@ -56,5 +56,5 @@ async function topicdev(prompt: string): Promise<string> {
   }
 
 export {
-    topicdev
+    subtopicdev
 }
