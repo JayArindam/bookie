@@ -43,7 +43,7 @@ async function book_structure_generator(prompt: string): Promise<string> {
 async function book_structurer (prompt: string) {
     try {
         const response = await book_structure_generator(prompt);
-        console.log(response);
+        // console.log(response);
 
         const cleanedResponse = response
           .replace(/```json/g, '') 

@@ -1,4 +1,5 @@
 import { topicdev } from "./topicdev";
+import { introgen } from "./introgenerator";
 
 interface Subtopic {
   title: string;
@@ -22,9 +23,9 @@ async function process_book_struct(jsonData: BookStructure): Promise<string> {
   async function iterateAndGenerate(data: BookStructure): Promise<void> {
     console.log("Processing Book Structure...");
 
-    // Process heading
+    // Process heading --- this part of the code generates heading for the bloody book T_T
     console.log(`Generating content for Heading: ${data.heading}...`);
-    const headingContent = await topicdev(data.heading);
+    const headingContent = await introgen(data.heading);
     generatedContent += `\n\n### Heading ###\n${headingContent}`;
 
     // Process topics and subtopics

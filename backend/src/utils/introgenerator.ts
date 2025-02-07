@@ -32,7 +32,7 @@ async function introgen(prompt: string): Promise<string> {
             },
           ],
           generationConfig: {
-            maxOutputTokens: 20000,
+            maxOutputTokens: 10000,
             temperature: 0.3,
           },
         });
