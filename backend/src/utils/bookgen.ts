@@ -12,7 +12,8 @@ async function book_generator(prompt: string) {
       }
   
       const bookContent = await process_book_struct(book_structure);
-      console.log("Generated Book Content:\n", bookContent);
+      return bookContent;
+      // console.log("Generated Book Content:\n", bookContent);
     } 
     catch (error) {
       console.error("Error during book generation:", error);
