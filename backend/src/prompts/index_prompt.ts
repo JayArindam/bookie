@@ -11,7 +11,7 @@ const index_prompt = `
  -> The subtopics should also cover most of the knowledge of the related fields as per the prompt
 
  The output requirement (JSON format) for the given prompts must be like the format given below. also make sure that is is tailored based on prompt given
- and also make sure that you replace the strings with adequate ones based on requirement, also add atleast 7 topics to this and minimum word limit is 3000 words
+ and also make sure that you replace the strings with adequate ones based on requirement, also add no more than 7 topics to this and minimum word limit is 3000 words
  format:
 
  NOTE: it should be nothing else than json format (no extra symbols or texts)

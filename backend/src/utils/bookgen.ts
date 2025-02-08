@@ -12,7 +12,7 @@ async function book_generator(prompt: string) {
       }
   
       const bookContent = await process_book_struct(book_structure);
-      return bookContent;
+      return {content: bookContent};
       // console.log("Generated Book Content:\n", bookContent);
     } 
     catch (error) {
