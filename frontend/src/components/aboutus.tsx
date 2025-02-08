@@ -1,12 +1,13 @@
 export default function AboutUs() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8">About TechNova</h1>
+      <h1 className="text-4xl font-bold text-center mb-8">About Teemo</h1>
 
       <div className="mb-8">
-        <p className="text-lg text-center max-w-2xl mx-auto">
-          TechNova is a cutting-edge software company dedicated to creating innovative solutions that transform the way
-          businesses operate in the digital world.
+        <p className="text-lg text-center max-w-4xl mx-auto">
+        At Teemo, we believe in the power of imagination and the magic of storytelling. Our mission is to empower writers of all levels by providing them with an innovative tool that unlocks creative potential.
+Our AI Book Generator utilizes cutting-edge language models to assist writers in crafting compelling narratives, 
+overcoming writer's block, and exploring new literary horizons. Whether you're a seasoned author or just starting your writing journey, our tool can help you:
         </p>
       </div>
 

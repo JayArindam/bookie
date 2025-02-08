@@ -1,9 +1,9 @@
-import Navbar from "@/components/navbar"
+import Counselor from "@/components/counselor"
 
 export default function counsellor () {
     return (
         <>
-            <h1>This is the counsellor page </h1>
+            <Counselor />
         </>
     )
 }
