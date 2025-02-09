@@ -1,7 +1,7 @@
 export default function AboutUs() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
-      <h1 className="text-4xl font-bold text-center mb-8">About Teemo</h1>
+      <h1 className="text-4xl font-bold text-center mb-8 font-mono ">About Teemo</h1>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Our AI-Based Solution</h2>

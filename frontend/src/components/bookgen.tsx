@@ -11,7 +11,7 @@ const BookGenerator: React.FC = () => {
         setLoading(true);
         setResponse(null);
         try {
-            const res = await fetch("http://localhost:3000/generatebook", {
+            const res = await fetch("http://localhost:3000/generateBook", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -24,9 +24,7 @@ const BookGenerator: React.FC = () => {
             }
 
             const data = await res.json();
-            // Clean the response
-            const cleanedContent = data?.data?.content?.replace(/\\n/g, "\n") || "No content available";
-            setResponse(cleanedContent);
+            setResponse(data.data|| "your request cannot be processed");
         } catch (error: any) {
             setResponse(`Error: ${error.message}`);
         } finally {
@@ -36,12 +34,12 @@ const BookGenerator: React.FC = () => {
 
     return (
         <div style={{ fontFamily: "Arial, sans-serif", margin: "20px", lineHeight: 1.6 }}>
-            <h1>Book Generator</h1>
-            <label htmlFor="promptInput">Enter a prompt:</label>
+            {/* <h1>Counselor</h1> */}
+            <label htmlFor="promptInput"className="text-yellow-500" >Enter a prompt:</label>
             <input
                 type="text"
                 id="promptInput"
-                placeholder="E.g., generate me a book about programming"
+                placeholder="E.g., write a book about c programming"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 style={{
@@ -55,6 +53,7 @@ const BookGenerator: React.FC = () => {
 
                 }}
             />
+        <div style={{textAlign:"center"}}>
           <button
                 onClick={sendRequest}
                 style={{
@@ -68,7 +67,8 @@ const BookGenerator: React.FC = () => {
             >
                 {loading ? "Loading..." : "Generate Book"}
             </button>
-            <h3>Response:</h3>
+        </div>
+            <h3 className="text-yellow-500">Response:</h3>
             <pre
                 style={{
                     background: "rgba(0, 0, 0, 0.5)",
@@ -77,7 +77,8 @@ const BookGenerator: React.FC = () => {
                     borderRadius: "5px",
                     whiteSpace: "pre-wrap",
                     wordWrap: "break-word",                    
-                    color: "#9a634b"
+                    // color: "#9a634b"
+                    color: "white"
                 }}
             >
                 {response || "Response will appear here..."}

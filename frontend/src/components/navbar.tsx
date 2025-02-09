@@ -20,7 +20,7 @@ const Navbar = () => {
         <NavButton href="/books" icon={<BookOpen size={24} />} label="AI Books" />
         <NavButton href="/counsellor" icon={<GraduationCap size={24} />} label="AI Counselor" />
         <NavButton href="/doubts" icon={<HelpCircle size={24} />} label="Doubt Solver" />
-        <NavButton href="/library" icon={<Library size={24} />} label="Library" />
+        {/* <NavButton href="/library" icon={<Library size={24} />} label="Library" /> */}
       </div>
     </nav>
   );

@@ -34,8 +34,8 @@ const Counselor: React.FC = () => {
 
     return (
         <div style={{ fontFamily: "Arial, sans-serif", margin: "20px", lineHeight: 1.6 }}>
-            <h1>Counselor</h1>
-            <label htmlFor="promptInput">Enter a prompt:</label>
+            {/* <h1>Counselor</h1> */}
+            <label htmlFor="promptInput"className="text-yellow-500" >Enter a prompt:</label>
             <input
                 type="text"
                 id="promptInput"
@@ -53,6 +53,7 @@ const Counselor: React.FC = () => {
 
                 }}
             />
+        <div style={{textAlign:"center"}}>
           <button
                 onClick={sendRequest}
                 style={{
@@ -66,7 +67,8 @@ const Counselor: React.FC = () => {
             >
                 {loading ? "Loading..." : "Ask Counsellor"}
             </button>
-            <h3>Response:</h3>
+        </div>
+            <h3 className="text-yellow-500">Response:</h3>
             <pre
                 style={{
                     background: "rgba(0, 0, 0, 0.5)",
@@ -75,7 +77,8 @@ const Counselor: React.FC = () => {
                     borderRadius: "5px",
                     whiteSpace: "pre-wrap",
                     wordWrap: "break-word",                    
-                    color: "#9a634b"
+                    // color: "#9a634b"
+                    color: "white"
                 }}
             >
                 {response || "Response will appear here..."}

@@ -34,12 +34,12 @@ const Doubtsol: React.FC = () => {
 
     return (
         <div style={{ fontFamily: "Arial, sans-serif", margin: "20px", lineHeight: 1.6 }}>
-            <h1>Doubt Solver</h1>
-            <label htmlFor="promptInput">Enter a prompt:</label>
+            {/* <h1>Counselor</h1> */}
+            <label htmlFor="promptInput"className="text-yellow-500" >Enter a prompt:</label>
             <input
                 type="text"
                 id="promptInput"
-                placeholder="E.g., what is 2+2"
+                placeholder="E.g., what is 2 + 2"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 style={{
@@ -53,7 +53,8 @@ const Doubtsol: React.FC = () => {
 
                 }}
             />
-            <button
+        <div style={{textAlign:"center"}}>
+          <button
                 onClick={sendRequest}
                 style={{
                     padding: "10px 20px",
@@ -64,9 +65,10 @@ const Doubtsol: React.FC = () => {
                     cursor: "pointer",
                 }}
             >
-                {loading ? "Loading..." : "Generate response"}
+                {loading ? "Loading..." : "Ask Doubt"}
             </button>
-            <h3>Response:</h3>
+        </div>
+            <h3 className="text-yellow-500">Response:</h3>
             <pre
                 style={{
                     background: "rgba(0, 0, 0, 0.5)",
@@ -75,7 +77,8 @@ const Doubtsol: React.FC = () => {
                     borderRadius: "5px",
                     whiteSpace: "pre-wrap",
                     wordWrap: "break-word",                    
-                    color: "#9a634b"
+                    // color: "#9a634b"
+                    color: "white"
                 }}
             >
                 {response || "Response will appear here..."}
