@@ -25,14 +25,40 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex h-screen bg-gray-100">
-          <Navbar />
-          <main className="flex-1 p-8 overflow-y-auto">{children}</main>
+        <div className="relative flex h-screen bg-gray-100">
+          {/* Background Video */}
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src="/background.mp4"
+            autoPlay
+            loop
+            muted
+          />
+          {/* Overlay for Content */}
+          <div className="absolute inset-0 bg-black/30"></div>
+
+          {/* Navbar on the Left */}
+          <div className="relative z-20 bg-black/70 text-white">
+            <Navbar />
+          </div>
+
+          {/* Main Content on the Right */}
+          <div className="relative z-10 flex-1 flex flex-col">
+            {/* Main Content */}
+            <main className="flex-1 p-8 overflow-y-auto text-white">
+              {children}
+            </main>
+
+            {/* Text at Bottom */}
+            <div className="bg-black/50 text-center text-white py-4">
+              <p>Work of teemo</p>
+            </div>
+          </div>
         </div>
-        {/* {children} */}
       </body>
     </html>
   );

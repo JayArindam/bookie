@@ -45,19 +45,22 @@ const BookGenerator: React.FC = () => {
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 style={{
+                    background: "rgba(0, 0, 0, 0.5)",
                     width: "100%",
                     padding: "10px",
                     marginBottom: "10px",
                     border: "1px solid #ccc",
                     borderRadius: "5px",
+                    color: "#9a634b"
+
                 }}
             />
-            <button
+          <button
                 onClick={sendRequest}
                 style={{
                     padding: "10px 20px",
-                    backgroundColor: "#007BFF",
-                    color: "white",
+                    backgroundColor: "rgba(0, 0, 0, 0.67)",
+                    color: "#9a634b",
                     border: "none",
                     borderRadius: "5px",
                     cursor: "pointer",
@@ -68,12 +71,13 @@ const BookGenerator: React.FC = () => {
             <h3>Response:</h3>
             <pre
                 style={{
-                    background: "#f4f4f4",
+                    background: "rgba(0, 0, 0, 0.5)",
                     padding: "10px",
-                    border: "1px solid #ddd",
+                    border: "1px solid rgba(126, 126, 126, 0.5)",
                     borderRadius: "5px",
                     whiteSpace: "pre-wrap",
-                    wordWrap: "break-word",
+                    wordWrap: "break-word",                    
+                    color: "#9a634b"
                 }}
             >
                 {response || "Response will appear here..."}
