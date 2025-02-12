@@ -11,7 +11,7 @@ const BookGenerator: React.FC = () => {
         setLoading(true);
         setResponse(null);
         try {
-            const res = await fetch("http://localhost:3000/generateBook", {
+            const res = await fetch("http://localhost:3000/generatebook", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -24,7 +24,9 @@ const BookGenerator: React.FC = () => {
             }
 
             const data = await res.json();
-            setResponse(data.data|| "your request cannot be processed");
+            // Clean the response
+            const cleanedContent = data?.data?.content?.replace(/\\n/g, "\n") || "No content available";
+            setResponse(cleanedContent);
         } catch (error: any) {
             setResponse(`Error: ${error.message}`);
         } finally {
@@ -34,12 +36,11 @@ const BookGenerator: React.FC = () => {
 
     return (
         <div style={{ fontFamily: "Arial, sans-serif", margin: "20px", lineHeight: 1.6 }}>
-            {/* <h1>Counselor</h1> */}
             <label htmlFor="promptInput"className="text-yellow-500" >Enter a prompt:</label>
             <input
                 type="text"
                 id="promptInput"
-                placeholder="E.g., write a book about c programming"
+                placeholder="E.g., write me a book about programming"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 style={{
@@ -87,4 +88,4 @@ const BookGenerator: React.FC = () => {
     );
 };
 
-export default BookGenerator;
+export default BookGenerator;
