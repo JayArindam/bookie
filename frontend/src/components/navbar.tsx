@@ -29,7 +29,7 @@ const Navbar = () => {
 const NavButton = ({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) => (
   <Link href={href}>
     <button
-      className="w-12 h-12 flex items-center justify-center text-orange-900 hover:text-orange-900 hover:bg-gray-100 rounded-lg transition-colors duration-200"
+      className="w-12 h-12 flex items-center justify-center text-white-900 hover:text-orange-900 hover:bg-gray-100 rounded-lg transition-colors duration-200"
       title={label}
     >
       {icon}

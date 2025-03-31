@@ -36,7 +36,7 @@ const BookGenerator: React.FC = () => {
 
     return (
         <div style={{ fontFamily: "Arial, sans-serif", margin: "20px", lineHeight: 1.6 }}>
-            <label htmlFor="promptInput"className="text-yellow-500" >Enter a prompt:</label>
+            <label htmlFor="promptInput"className="text-white-500" >Enter a prompt:</label>
             <input
                 type="text"
                 id="promptInput"
@@ -50,7 +50,7 @@ const BookGenerator: React.FC = () => {
                     marginBottom: "10px",
                     border: "1px solid #ccc",
                     borderRadius: "5px",
-                    color: "#9a634b"
+                    color: "white"
 
                 }}
             />
@@ -60,8 +60,8 @@ const BookGenerator: React.FC = () => {
                 style={{
                     padding: "10px 20px",
                     backgroundColor: "rgba(0, 0, 0, 0.67)",
-                    color: "#9a634b",
-                    border: "none",
+                    color: "#ccc",
+                    border: "1px solid #ccc",
                     borderRadius: "5px",
                     cursor: "pointer",
                 }}
@@ -69,7 +69,7 @@ const BookGenerator: React.FC = () => {
                 {loading ? "Loading..." : "Generate Book"}
             </button>
         </div>
-            <h3 className="text-yellow-500">Response:</h3>
+            <h3 className="text-white-500">Response:</h3>
             <pre
                 style={{
                     background: "rgba(0, 0, 0, 0.5)",
@@ -78,7 +78,6 @@ const BookGenerator: React.FC = () => {
                     borderRadius: "5px",
                     whiteSpace: "pre-wrap",
                     wordWrap: "break-word",                    
-                    // color: "#9a634b"
                     color: "white"
                 }}
             >

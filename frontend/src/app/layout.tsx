@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import GifVideo from "@/components/ani";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,15 +30,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="relative flex h-screen bg-gray-100">
+        <div className="relative flex h-screen bg-black">
           {/* Background Video */}
-          <video
+          {/* <video
             className="absolute inset-0 w-full h-full object-cover"
             src="/background.mp4"
             autoPlay
             loop
             muted
-          />
+          /> */}
+          <GifVideo />
+          
           {/* Overlay for Content */}
           <div className="absolute inset-0 bg-black/30"></div>
 
@@ -53,10 +56,10 @@ export default function RootLayout({
               {children}
             </main>
 
-            {/* Text at Bottom */}
+            {/* Text at Bottom
             <div className="bg-black/50 text-center text-white py-4">
               <p>Work of teemo</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </body>
